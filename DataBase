@@ -1,0 +1,40 @@
+CREATE DATABASE (
+CREATE TABLE Imagens 
+( 
+ IDimagem INT PRIMARY KEY,  
+ País imagem pertecente INT,  
+); 
+
+CREATE TABLE texto 
+( 
+ IDtexto INT PRIMARY KEY,  
+ mensagem INT,  
+); 
+
+CREATE TABLE Filtros 
+( 
+ IDfiltro INT PRIMARY KEY,  
+ itens INT,  
+); 
+
+CREATE TABLE Vídeos 
+( 
+ IDvideo INT PRIMARY KEY,  
+ País video pertecente INT,  
+); 
+
+CREATE TABLE Países 
+( 
+ Locais INT PRIMARY KEY,  
+ Regiões INT,  
+ IDtexto INT PRIMARY KEY,  
+ IDimagem INT PRIMARY KEY,  
+ IDfiltro INT PRIMARY KEY,  
+ IDvideo INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Países ADD FOREIGN KEY(IDtexto) REFERENCES texto (IDtexto)
+ALTER TABLE Países ADD FOREIGN KEY(IDimagem) REFERENCES Imagens (IDimagem)
+ALTER TABLE Países ADD FOREIGN KEY(IDfiltro) REFERENCES Filtros (IDfiltro)
+ALTER TABLE Países ADD FOREIGN KEY(IDvideo) REFERENCES Vídeos (IDvideo)
+);
